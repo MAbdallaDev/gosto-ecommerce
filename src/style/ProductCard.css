@@ -1,0 +1,59 @@
+.card {
+   border: none;
+   background-color: transparent;
+}
+
+.card img {
+   max-width: 300px;
+   max-width: 100%;
+   border-radius: 25px;
+}
+
+.card .details {
+   text-align: left;
+}
+
+.card .details h6 {
+   line-height: 1.5;
+}
+
+.card .details p.text-p {
+   font-style: italic;
+}
+
+.img-holder .overlay {
+   position: absolute;
+   bottom: 40px;
+   width: 100%;
+   opacity: 0;
+   transition: var(--long-transition) ease-in-out;
+}
+
+.img-holder .overlay button {
+   border: none;
+   background-color: #fff;
+   width: 52px;
+   height: 52px;
+   margin: 0px 6px;
+   border-radius: 50%;
+   transition: var(--long-transition);
+}
+
+.card:hover .overlay {
+   opacity: 0.9;
+   bottom: 70px;
+}
+
+.img-holder .overlay button svg {
+   transition: var(--long-transition);
+}
+
+.img-holder .overlay button:hover {
+   background-color: var(--orange);
+}
+.img-holder .overlay button:hover svg {
+   color: #fff;
+}
+
+.img-holder .overlay svg.liked{color: var(--red);}
+/* .img-holder .overlay button:hover svg.liked{color: var(--red);} */

@@ -1,23 +1,44 @@
-import logo from './logo.svg';
 import './App.css';
-
+import { BrowserRouter as Router, Route, Link, Routes, Outlet } from 'react-router-dom';
+import NavbarCom from './components/NavbarCom';
+import Footer from './components/Footer';
+import Home from './page/Home';
+import Sidbar from './components/Sidbar';
+import CartDetails from './page/CartDetails';
+import { useSelector } from 'react-redux';
+import ImgModel from './components/ImgModel';
+import CartPage from './page/CartPage';
+import About from './page/About';
+import Contact from './page/Contact';
+import Shop from './page/Shop';
 function App() {
+  const imgSrc = useSelector(state => state.imgModel);
+  // console.log(imgSrc);
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Router>
+        <NavbarCom />
+        <Sidbar />
+        <Routes>
+          <Route path='/' element={<Home />} />
+          <Route path='/cart' element={<Outlet />} >
+            <Route path='' element={<CartPage />} />
+            <Route path=':productId' element={<CartDetails />} />
+          </Route>
+          <Route path='/about' element={<About />}/>
+          <Route path='/contact' element={<Contact />}/>
+          <Route path='/shop' element={<Shop />}/>
+
+        </Routes>
+        {
+          imgSrc !== '' &&
+          <>
+            <ImgModel imgSrc={imgSrc} />
+            <div className='img-overlay'></div>
+          </>
+        }
+        <Footer />
+      </Router>
     </div>
   );
 }

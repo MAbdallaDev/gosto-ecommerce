@@ -1,38 +1,138 @@
 .App {
-  text-align: center;
+  margin-top: 75px;
+}
+*::-webkit-scrollbar {
+  width: 10px;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+*::-webkit-scrollbar-thumb {
+  border-radius: 5px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+*::-webkit-scrollbar-thumb {
+  background: var(--main-gradient);
+}
+*::-webkit-scrollbar-track {
+  background-color: var(--main-background);
+}
+
+.main-background {
+  background: var(--main-gradient)
+}
+.border-red {
+  border: 1px solid #ff4b2e ;
+}
+@media (max-width:991px) {
+  .mobile-hidden {
+    display: none !important;
+  }
+  
+}
+
+/* SIDBAR START */
+.sidbar {
+  position: fixed;
+  height: calc(100vh - 75px);
+  width: 320px;
+  top: 75px;
+  left: -320px;
+  z-index: 10000;
+  padding: 30px;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+  box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+  background-color: var(--main-background);
+  transition: 0.4s;
+}
+.sidbar.active {
+  left: 0;
+  background-color: rgb(246 247 248 / 80%);
+}
+.sidbar .nav-link {
+  font-size: 15px;
+  font-weight: 500;
+  padding: 10px;
+}
+@media (min-width: 991px) {
+  .sidbar{
+    left: -100% !important;
+  }
+}
+/* SIDBAR END */
+@media(min-width:991px) {
+  .lg-screen-hidden {
+    display: none !important;
   }
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+
+.modelOpen {
+  position: fixed;
+  top: calc(50% + 37px);
+  top: 52%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 45%;
+  aspect-ratio: 15 / 9;
+  /* height: 600px; */
+  /* height: calc(100vh - 75px - 25px); */
+  z-index: 100000;
 }
 
-.App-link {
-  color: #61dafb;
+.modelOpen img {
+  max-width: 100%;
+  aspect-ratio: 16/15;
+  /* aspect-ratio: 10/9; */
+  /* max-height: 100%; */
+  border-radius: 0;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+@media (max-width:1199px) {
+  .modelOpen  {
+    width: 60%;
   }
-  to {
-    transform: rotate(360deg);
+}
+@media (max-width:768px) {
+  .modelOpen  {
+    width: 75%;
   }
+}
+@media (max-width:576px) {
+  .modelOpen  {
+    width: 92%;
+  }
+}
+.img-overlay {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: 10000;
+  background-color: rgb(0 0 0 / 45%);
+}
+.delete-imgmodel {
+  position: absolute;
+  top: -15px;
+  right: -15px;
+  background: var(--main-gradient);
+  color: #fff;
+  width: 40px;
+  height: 40px;
+}
+.footer {
+  padding: 25px;
+  background-image: var(--main-gradient);
+  color: #fff;
+}
+.cart-page ,
+.about-us ,
+.contact-us ,
+.shop {
+  min-height: calc(100vh - 75px - 122px);
+}
+.about-us p {
+  line-height: 1.8;
+  color: #222;
+  font-weight: 500;
+  font-size: 18px;
 }
